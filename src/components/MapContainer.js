@@ -25,13 +25,34 @@ export class MapContainer extends Component {
   };
 
   render() {
+    // let parkMarkers = this.props.mapParks.map( (elem, idx) =>
+    //   (
+    //     <Marker 
+    //       options={{icon: 'images/parkee-marker.png'}}
+    //       onClick={this.onMarkerClick}
+    //       name={'Current location'}
+    //       key={idx}
+    //       title={elem.properties.place}
+    //       name={elem.properties.place}
+    //       position={{ 
+    //         lat: elem.geometry.coordinates[1], 
+    //         lng: elem.geometry.coordinates[0] 
+    //       }}
+    //     />
+    //   )
+    // )
+
     return (
       <Map google={this.props.google} 
           zoom={14}
-          onClick={this.onMapClicked}>
-
-        <Marker onClick={this.onMarkerClick}
-                name={'Current location'} />
+          onClick={this.onMapClicked}
+          initialCenter={{
+            lat: 37.7763614, 
+            lng: -122.4357914
+          }}
+          // style={{width: '50%', height: '80%'}}
+      >
+       {/* {parkMarkers} */}
 
         <InfoWindow
           onClose={this.onInfoWindowClose}
